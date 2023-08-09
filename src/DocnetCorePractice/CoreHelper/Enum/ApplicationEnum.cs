@@ -23,4 +23,11 @@
         Vip1,
         Vip2,
     }
+
+    public enum StatusOrder
+    {
+        WaitToPay,
+        Success,
+        Failed
+    }
 }
