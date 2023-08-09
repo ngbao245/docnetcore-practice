@@ -104,14 +104,6 @@ namespace DocnetCorePractice.Controllers
 
         // HERE //
 
-        [HttpGet]
-        [Route("/api/get-all")]
-
-        public IActionResult GetAll()
-        {
-            return Ok(users);
-        }
-
         // 11. Tạo CreateOrderRequest model để nhập các thông tin cho việc insert một order mới theo json:
         //{
         //  "userId": "string",
