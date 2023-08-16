@@ -1,4 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using DocnetCorePractice.Data;
+using DocnetCorePractice.Service;
+using Microsoft.OpenApi.Models;
 using Serilog;
 
 namespace DocnetCorePractice
@@ -29,6 +31,7 @@ namespace DocnetCorePractice
             });
 
             var connectionString = _configuration.GetConnectionString("DefaultConnection");
+            AddDI(services);
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment env)
@@ -57,6 +60,13 @@ namespace DocnetCorePractice
             {
                 endpoint.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private void AddDI(IServiceCollection services)
+        {
+            services.AddScoped<IInitData, InitData>();
+            services.AddScoped<IUserService, UserService>();
+
         }
     }
 }

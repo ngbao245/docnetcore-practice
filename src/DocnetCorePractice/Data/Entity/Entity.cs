@@ -1,4 +1,6 @@
-﻿namespace DocnetCorePractice.Data.Entity
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DocnetCorePractice.Data.Entity
 {
     public abstract class Entity
     {
@@ -9,6 +11,7 @@
             LastUpdateTimes = DateTime.Now;
         }
 
+        [Key]
         public string Id { get; set; }
         public DateTime CreateTimes { get; set; }
         public DateTime LastUpdateTimes { get; set; }
